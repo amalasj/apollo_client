@@ -1,0 +1,6 @@
+query FindUser($id : Int){
+    findUser(id: $id) {
+        name
+        address
+    }
+}
