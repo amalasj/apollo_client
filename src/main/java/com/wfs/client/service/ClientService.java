@@ -18,7 +18,7 @@ import java.util.concurrent.CompletableFuture;
 public class ClientService {
 
     @Autowired
-    MasterDataServiceProperties marineMasterDataServiceProperties;
+    MasterDataServiceProperties masterDataServiceProperties;
 
     @Autowired
     ApolloClientConfig apolloClientConfig;
@@ -28,7 +28,7 @@ public class ClientService {
 
         com.wfs.client.generated.FindUserQuery findUserQuery = com.wfs.client.generated.FindUserQuery.builder().id(id).build();
 
-        ApolloCall<com.wfs.client.generated.FindUserQuery.Data> findUserQueryData = apolloClientConfig.getApolloClient(marineMasterDataServiceProperties.getUrl())
+        ApolloCall<com.wfs.client.generated.FindUserQuery.Data> findUserQueryData = apolloClientConfig.getApolloClient(masterDataServiceProperties.getUrl())
                 .query(findUserQuery);
 
         CompletableFuture<com.wfs.client.generated.FindUserQuery.FindUser> future = new CompletableFuture<>();
